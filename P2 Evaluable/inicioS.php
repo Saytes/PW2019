@@ -2,7 +2,7 @@
 
     session_start();
 
-    if(isset([$_SESSION['logged']])){
+    if(isset($_SESSION['logged'])){
 
         echo '<p>';
             echo  $_SESSION['nombre'];
@@ -25,5 +25,6 @@
                     <input type="submit" name="submit" value="Enviar">
                 </form>  
                 <a href="altausuario.php"><i>Formulario de alta</i></a>';
+    }
 ?>
 

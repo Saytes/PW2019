@@ -19,9 +19,9 @@
                         <h1>¡Recomienda un libro!</h1>   
                 </section>
 
-                <section class="inicioS">
-                    <?php include 'inicioS.php';?>
-                </section>
+                <section class="inicioS">';
+                    include 'inicioS.php';
+    echo '      </section>
             </header>    
     ';
 ?>
