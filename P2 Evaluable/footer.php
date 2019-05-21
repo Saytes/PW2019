@@ -8,5 +8,6 @@
         </footer>   
 
         </body>
-        </html>';
+    </html>
+    ';
 ?>
