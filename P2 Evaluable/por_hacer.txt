@@ -7,7 +7,6 @@ COMO SE HIZO
 CONTACTO
 FORO
 HILO1,2,3
-INDEX
 LIBRO1,2,3
 LIBROLEÍDO1,2,3
 MISDATOS
@@ -20,12 +19,6 @@ FUNCIONALIDADES
 1. A partir del formulario que se hizo en la primera práctica evaluable para
 que los usuarios del recomendador de libros se den de alta, dotarlo de funcionalidad para que se incorporen al sistema como miembros del
 mismo.
-
-2. Modificar la página principal para permitir identificarse al usuario y abrir
-así una sesión, manteniéndola activa hasta que el usuario, de alguna forma, cierre la misma.
-
-3. Una vez identificado, el usuario activo se quedará en el index.php pero
-aparecerá su nombre de usuario en la esquina superior derecha, así como un enlace o botón para cerrar sesión.
 
 4. Permitir que el usuario activo pueda crear un libro y ofrecer su opinión y
 valoración, así como modificar las de aquellos libros que haya dado de
