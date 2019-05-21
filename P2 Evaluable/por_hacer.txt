@@ -15,6 +15,7 @@ MISRECOMENDACIONES
 VALORACIÓNLIBRO1,2,3.
 
 FUNCIONALIDADES
+BASE DE DATOS, CAMBIAR TABLA USERS, BOOKS Y RELACIÓN ENTRE AMBAS
 
 1. A partir del formulario que se hizo en la primera práctica evaluable para
 que los usuarios del recomendador de libros se den de alta, dotarlo de funcionalidad para que se incorporen al sistema como miembros del
