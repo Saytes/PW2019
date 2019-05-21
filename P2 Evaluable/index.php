@@ -8,6 +8,8 @@
     </figure>
 </section>
 
+<!-- AQUÍ LOS LIBROS LOS COJO DE LA BASE DE DATOS -->
+
 <section class="menu">
     <section class="tituloMenu">
         <h2>Libros mejor valorados</h2>
