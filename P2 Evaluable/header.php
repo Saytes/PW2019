@@ -5,6 +5,7 @@
         <head>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="estilo.css">
+        <script type="text/javascript" src="./script.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>¡Recomienda un libro!</title>
         </head>

@@ -32,9 +32,6 @@
         if(isset($_SESSION['error'])){
             echo '
                         <script>
-                            function errorLogin() {
-                                alert("Email o Contraseña incorrectos.");
-                            }
                             errorLogin();
                         </script>
             ';
@@ -42,13 +39,13 @@
         }
 
         echo '
-                    <form action="iniciarS.php" id="myform" name="myform" method="post">
+                    <form action="iniciarS.php" onsubmit="return validateLogin()" id="myform" name="myform" method="post">
                         <section>
                             <label for="user"><i>Email:</i></label>
-                            <input type="text" name="email" id="email" placeholder="Email" required/>
+                            <input type="text" name="email" id="email" placeholder="Email"/>
                             </br>
                             <label for="pass"><i>Contrase&ntilde;a:</i></label>
-                            <input type="password" name="pass" id="pass" placeholder="Contrase&ntilde;a" required/>
+                            <input type="password" name="pass" id="pass" placeholder="Contrase&ntilde;a"/>
                         </section>
                         <input type="submit" name="submit" value="Enviar">
                     </form>  
