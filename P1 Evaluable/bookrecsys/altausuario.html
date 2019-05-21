@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="estilo.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>¡Recomienda un libro!</title>
+</head>
+<body>
+
+    <header>
+        <section class="logo">
+            
+            <a href="index2.html"><img src="imagenes/logo.png" alt="Logo de la página." width="175px"> </a>
+        </section>
+
+        <section class="titulo">
+                <h1>¡Recomienda un libro!</h1>   
+        </section>
+
+        <section class="inicioS">
+            <form action="index2.html" method="post">
+                <section>
+                <label><i>Usuario:</i></label>
+                <input type = "text" id = "user"/>
+                </br>
+                <label><i>Contrase&ntilde;a:</i></label>
+                <input type = "password" id = "pass"/>
+                </section>
+            </form>
+            <form name="login" action="index2.html" method="POST">
+                <input type="submit" value="Enviar">
+            </form>  
+            <a href="altausuario.html"><i>Formulario de alta</i></a> 
+        </section>   
+    </header>
+
+    <section class="alta-usuario">
+        <form action="index2.html" class="misdatos">
+            <label><i>Nombre:</i></label>
+            <input type="text" name="nombre"></br>
+            <label><i>Contrase&ntilde;a:</i></label>
+            <input type="password" name="contraseña"></br>
+            <label><i>EMail:</i></label>
+            <input type="email" name="email"></br>
+            <label><i>Fecha de Nacimiento:</i></label>
+            <input type="date" name="fechanacimiento"></br>
+            <label><i>Biograf&iacute;a:</i></label>
+            <textarea name="biografia" class="biografia" cols="50" rows="10"></textarea></br>
+        </form>
+        <a href="index.html"><button type="submit" >Alta</button></a>     
+    </section>   
+
+    <footer>
+        <section class="pie">
+            <a href="./contacto.html"><i>Contacto </i></a>
+            <a href="./como_se_hizo.pdf" target="_blank"><i> - C&oacute;mo se hizo</i></a>
+        </section>
+    </footer>   
+
+</body>
+</html>
