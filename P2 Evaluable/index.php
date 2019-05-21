@@ -1,33 +1,12 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="estilo.css">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>¡Recomienda un libro!</title>
-</head>
-<body>
-    
-    <header>
-        <section class="logo">
-            <img src="imagenes/logo.png" alt="Logo de la página." width="175px"> 
-        </section>
+<?php
+    include 'header.php';
+?>
 
-        <section class="titulo">
-                <h1>¡Recomienda un libro!</h1>   
-        </section>
-
-        <section class="inicioS">
-            <?php include 'inicioS.php';?>
-        </section>
-
-    </header>    
-
-    <section class="imagenRelacionada">
-        <figure>
-            <img class="relacionada.jpg" src="imagenes/books.png" alt="Imagen Relacionada" >
-        </figure>
-    </section>
+<section class="imagenRelacionada">
+    <figure>
+        <img class="relacionada.jpg" src="imagenes/books.png" alt="Imagen Relacionada" >
+    </figure>
+</section>
 
 <section class="menu">
     <section class="tituloMenu">
@@ -74,12 +53,6 @@
     </section>
 </section>  
 
-<footer>
-    <section class="pie">
-        <a href="./contactoindex.html"><i>Contacto </i></a>
-        <a href="./bookrecsys/como_se_hizo.pdf" target="_blank"><i> - C&oacute;mo se hizo</i></a>
-    </section>
-</footer>   
-
-</body>
-</html>
+<?php
+    include 'footer.php';
+?>
