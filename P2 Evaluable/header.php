@@ -21,7 +21,4 @@
 
                 <section class="inicioS">';
                     include 'inicioS.php';
-    echo '      </section>
-            </header>    
-    ';
 ?>
