@@ -1,0 +1,49 @@
+Páginas a implementar:
+
+ALTA HILO
+ALTA LIBRO
+ALTA USUARIO
+COMO SE HIZO
+CONTACTO
+FORO
+HILO1,2,3
+INDEX
+LIBRO1,2,3
+LIBROLEÍDO1,2,3
+MISDATOS
+MISLIBROS
+MISRECOMENDACIONES
+VALORACIÓNLIBRO1,2,3.
+
+FUNCIONALIDADES
+
+1. A partir del formulario que se hizo en la primera práctica evaluable para
+que los usuarios del recomendador de libros se den de alta, dotarlo de funcionalidad para que se incorporen al sistema como miembros del
+mismo.
+
+2. Modificar la página principal para permitir identificarse al usuario y abrir
+así una sesión, manteniéndola activa hasta que el usuario, de alguna forma, cierre la misma.
+
+3. Una vez identificado, el usuario activo se quedará en el index.php pero
+aparecerá su nombre de usuario en la esquina superior derecha, así como un enlace o botón para cerrar sesión.
+
+4. Permitir que el usuario activo pueda crear un libro y ofrecer su opinión y
+valoración, así como modificar las de aquellos libros que haya dado de
+alta él.
+
+5. Que cualquier usuario pueda ver los libros que hay en el sistema dados
+de alta y expresar su opinión y poder modificarla en cualquier momento.
+
+6. Que el usuario activo pueda modificar sus datos personales.
+
+7. Validar la corrección de todos los formularios (con JavaScript). En relación
+a los formularios, deben existir campos obligatorios, los comentarios a las
+entradas deben tener una longitud máxima, deben existir en los
+formularios que correspondan valores numéricos, números de teléfonos y
+direcciones de correo electrónico o URLs (todos validados según su
+formato correspondiente).
+
+8. Que el usuario pueda subir su foto a la web cuando se dé de alta. Esta se
+mostrará en “Mis Datos” (no se podrá modificar) y al pasar el ratón por la
+foto de un usuario, aparecerá una ventana emergente con los títulos de
+los libros que ha subido.
