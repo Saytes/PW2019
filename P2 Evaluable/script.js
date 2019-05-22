@@ -2,6 +2,14 @@ function errorLogin() {
     window.alert("Email o Contraseña incorrectos.");
 }
 
+function registroCorrecto() {
+    window.alert("Registro realizado con éxito, se te redirigirá a la página principal para que puedas iniciar sesión.");
+}
+
+function errorGenerico() {
+    window.alert("Ups, algo ha fallado. ¡Prueba otra vez!");
+}
+
 function validateLogin()                                    
 {          
     var email = document.forms["myform"]["email"];   
