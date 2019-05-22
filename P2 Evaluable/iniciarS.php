@@ -16,15 +16,21 @@
     if( (isset($_POST['email'])) and (isset($_POST['pass']))){
         $email = $_POST['email'];
         $pass = $_POST['pass'];
-        $sql = "SELECT NAME FROM USERS WHERE EMAIL= '$email' AND PASSWORD= '$pass'";
+        $sql = "SELECT * FROM USERS WHERE EMAIL= '$email' AND PASSWORD= '$pass'";
         $result = mysqli_query($conn, $sql);
     }    
 
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
-        $_SESSION['username']= $row["NAME"];        
-    
-    }else{
+        $_SESSION['userId']= $row["ID"];   
+        $_SESSION['username']= $row["NAME"]; 
+        $_SESSION['userlastname']= $row["LASTNAME"];
+        $_SESSION['usermail']= $row["EMAIL"];
+        $_SESSION['userpass']= $row["PASSWORD"];  
+        $_SESSION['userbirth']= $row["BIRTHDATE"];
+        $_SESSION['userbio']= $row["BIOGRAPHY"];      
+    }
+    else{
         $_SESSION['error']= "error";
     }
 
