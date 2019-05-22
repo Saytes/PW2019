@@ -8,7 +8,7 @@
     unset($_SESSION['userpass']);
     unset($_SESSION['userbirth');
     unset($_SESSION['userbio']);  
-    session_destroy(true);
+    session_destroy();
 
     header("Location: ./index.php");
 ?>
