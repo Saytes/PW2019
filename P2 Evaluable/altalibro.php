@@ -1,8 +1,8 @@
 <?php
     include 'header.php';
-?>
 
-    <section class="cabecera-libroleidox">
+
+   echo '<section class="cabecera-libroleidox">
         <img src="imagenes/imagenb.jpg" alt=" Imagen" width="150px">
         <ul class="cabecera-datos">
             <li>
@@ -53,7 +53,7 @@
         </form> 
         <a href="mislibros.html"><button type="submit" >Alta libro</button></a>        
     </section>
-
-<?php
+    ';
+    
     include 'footer.php';
 ?>

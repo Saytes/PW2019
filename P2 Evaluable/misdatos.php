@@ -1,9 +1,9 @@
 <?php
     include 'header.php';
-?>
 
-    <section class="alta">
-        <form action="index2.html" class="misdatos">
+
+    echo '<section class="alta">
+        <form action="actualizarD.php" onsubmit="return validateUpdateData()" id="misdatos" name="misdatos" class="misdatos" method="post">
             <label><i>Nombre:</i></label>
             <input type="text" name="nombre" value="Jorge"></br>
             <label><i>Apellidos:</i></label>
@@ -16,10 +16,9 @@
             <input type="date" name="fechanacimiento" value="1995-11-25"></br>
             <label><i>Biograf&iacute;a:</i></label>
             <textarea name="biografia" class="biografia" cols="50" rows="10">Me encanta la lectura!</textarea>
-        </form>
-        <a href="index2.html"><button type="submit" >Modificar datos</button></a>     
-    </section>   
+            <input type="submit" name="submit" value="Modificar datos">
+        </form> 
+    </section>';
 
-<?php
     include 'footer.php';
 ?>
