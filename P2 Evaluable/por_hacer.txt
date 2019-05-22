@@ -4,13 +4,13 @@ COMO SE HIZO -- escribir al final
 CONTACTO -- probar
 MISRECOMENDACIONES -- probar
 MISDATOS -- probar JUNTO A ACTUALIZAR D
-ALTA LIBRO -- terminar
 ALTA USUARIO -- probar JUNTO A Insertar usuario
+ALTA LIBRO -- terminar
 MISLIBROS -- consultar bd libros con el id del usuario que inició sesión.
 LIBRO1,2,3 -- consulto el libro cuando le hago click y relleno la página genérica.
 LIBROLEÍDO1,2,3 -- consulto el libro cuando le hago click y relleno la página genérica.
 VALORACIÓNLIBRO1,2,3 -- consulto el libro cuando le hago click y relleno la página genérica.
-"FORO - HILO1,2,3 - ALTA HILO -- terminar"
+"FORO - HILO1,2,3 - ALTA HILO"
 
 FUNCIONALIDADES
 BASE DE DATOS, CAMBIAR TABLA USERS, BOOKS Y RELACIÓN ENTRE AMBAS
