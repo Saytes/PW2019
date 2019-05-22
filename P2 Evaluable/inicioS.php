@@ -30,12 +30,30 @@
     else{
 
         if(isset($_SESSION['error'])){
-            echo '
-                        <script>
-                            errorLogin();
-                        </script>
-            ';
-            unset($_SESSION['error']);
+            if($_SESSION['error'] == "error"){
+                echo '
+                    <script>
+                        errorLogin();
+                    </script>
+                ';
+                unset($_SESSION['error']);
+            }
+            else if($_SESSION['error'] == "1"){
+                echo '
+                    <script>
+                        errorGenerico();
+                    </script>
+                ';
+                unset($_SESSION['error']);
+            }
+            else if($_SESSION['error'] == "0"){
+                echo '
+                    <script>
+                        registroCorrecto();
+                    </script>
+                ';
+                unset($_SESSION['error']);
+            }
         }
 
         echo '
