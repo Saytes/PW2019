@@ -3,7 +3,7 @@ Páginas a implementar:
 COMO SE HIZO -- escribir al final
 CONTACTO -- probar
 MISRECOMENDACIONES -- probar
-MISDATOS -- terminar
+MISDATOS -- probar JUNTO A ACTUALIZAR D
 ALTA HILO -- terminar
 ALTA LIBRO -- terminar
 ALTA USUARIO -- terminar

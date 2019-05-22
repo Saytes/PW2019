@@ -13,27 +13,83 @@
         session_start();
     }
 
-    if( (isset($_POST['email'])) and (isset($_POST['pass']))){
-        $email = $_POST['email'];
-        $pass = $_POST['pass'];
-        $sql = "SELECT * FROM USERS WHERE EMAIL= '$email' AND PASSWORD= '$pass'";
+    if(isset($_SESSION["userId"])){
+        $id = $_SESSION["userId"];
+        $sql = "SELECT * FROM USERS WHERE ID= '$id'";
         $result = mysqli_query($conn, $sql);
-    }    
 
-    if (mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_assoc($result);
-        $_SESSION['userId']= $row["ID"];   
-        $_SESSION['username']= $row["NAME"]; 
-        $_SESSION['userlastname']= $row["LASTNAME"];
-        $_SESSION['usermail']= $row["EMAIL"];
-        $_SESSION['userpass']= $row["PASSWORD"];  
-        $_SESSION['userbirth']= $row["BIRTHDATE"];
-        $_SESSION['userbio']= $row["BIOGRAPHY"];      
+        if (mysqli_num_rows($result) > 0) {
+            if(isset($_POST['email'])){
+                $email = $_POST['email'];
+                $alter = "UPDATE USERS SET USERS.EMAIL= '$email' WHERE USERS.ID = '$id'";
+                if (mysqli_query($conn, $alter)) {
+                    $_SESSION['usermail']= $email;
+                    echo "Record updated successfully";
+                } else {
+                echo "Error updating record: " . mysqli_error($conn);
+                }
+            }
+
+            if(isset($_POST['pass'])){
+                $pass = $_POST['pass'];
+                $alter = "UPDATE USERS SET USERS.PASSWORD='$pass' WHERE USERS.ID = '$id'";
+                if (mysqli_query($conn, $alter)) {
+                    echo "Record updated successfully";
+                    $_SESSION['userpass']= $pass;  
+                } else {
+                echo "Error updating record: " . mysqli_error($conn);
+                }
+            }
+
+            if(isset($_POST['nombre'])){
+                $nombre = $_POST['nombre'];
+                $alter = "UPDATE USERS SET USERS.NAME= '$nombre' WHERE USERS.ID = '$id'";
+                if (mysqli_query($conn, $alter)) {
+                    $_SESSION['username']= $nombre; 
+                    echo "Record updated successfully";
+                } else {
+                echo "Error updating record: " . mysqli_error($conn);
+                }
+            }
+
+            if(isset($_POST['apellidos'])){
+                $apellidos = $_POST['apellidos'];
+                $alter = "UPDATE USERS SET USERS.LASTNAME= '$apellidos' WHERE USERS.ID = '$id'";
+                if (mysqli_query($conn, $alter)) {
+                    $_SESSION['userlastname']= $apellidos; 
+                    echo "Record updated successfully";
+                } else {
+                echo "Error updating record: " . mysqli_error($conn);
+                }
+            }
+
+            if(isset($_POST['biografia'])){
+                $biografia = $_POST['biografia'];
+                $alter = "UPDATE USERS SET USERS.BIOGRAPHY= '$biografia' WHERE USERS.ID = '$id'";
+                if (mysqli_query($conn, $alter)) {
+                    $_SESSION['userbio']= $biografia;   
+                    echo "Record updated successfully";
+                } else {
+                echo "Error updating record: " . mysqli_error($conn);
+                }
+            }
+
+            if(isset($_POST['fechanacimiento'])){
+                $fechanacimiento = $_POST['fechanacimiento'];
+                $alter = "UPDATE USERS SET USERS.BIRTHDATE= '$fechanacimiento' WHERE USERS.ID = '$id'";
+                if (mysqli_query($conn, $alter)) {
+                    $_SESSION['userbirth']= $fechanacimiento; 
+                    echo "Record updated successfully";
+                } else {
+                echo "Error updating record: " . mysqli_error($conn);
+                }
+            }
+        }
     }
     else{
-        $_SESSION['error']= "error";
+        echo 'No user Logged in';
     }
-
+    
     mysqli_close($conn);
 
     header("Location: ./misdatos.php");
