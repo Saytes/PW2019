@@ -6,7 +6,7 @@ MISRECOMENDACIONES -- probar
 MISDATOS -- probar JUNTO A ACTUALIZAR D
 ALTA HILO -- terminar
 ALTA LIBRO -- terminar
-ALTA USUARIO -- terminar
+ALTA USUARIO -- probar JUNTO A Insertar usuario
 MISLIBROS -- consultar bd libros con el id del usuario que inició sesión.
 LIBRO1,2,3 -- consulto el libro cuando le hago click y relleno la página genérica.
 LIBROLEÍDO1,2,3 -- consulto el libro cuando le hago click y relleno la página genérica.
