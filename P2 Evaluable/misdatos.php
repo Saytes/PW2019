@@ -41,9 +41,9 @@
             }
     echo '        
             <label><i>Nombre:</i></label>
-            <input type="text" name="nombre" value="'. $_SESSION["username"] . '"></br>
+            <input type="text" name="nombre" value="'. $_SESSION["username"] . '" pattern="[a-zA-Z\s]*"></br>
             <label><i>Apellidos:</i></label>
-            <input type="text" name="apellidos" value="'. $_SESSION['userlastname'] .'"></br>
+            <input type="text" name="apellidos" value="'. $_SESSION['userlastname'] .'" pattern="[a-zA-Z\s]*"></br>
             <label><i>E-Mail:</i></label>
             <input type="email" name="email" value="' . $_SESSION['usermail'] . '"></br>
             <label><i>Contrase&ntilde;a:</i></label>
@@ -51,7 +51,7 @@
             <label><i>Fecha de Nacimiento:</i></label>
             <input type="date" name="fechanacimiento" value="' . $_SESSION['userbirth']. '"></br>
             <label><i>Biograf&iacute;a:</i></label>
-            <textarea name="biografia" class="biografia" cols="50" rows="10">' . $_SESSION['userbio']. '</textarea>
+            <textarea name="biografia" class="biografia" cols="50" rows="10" maxlength="1000">' . $_SESSION['userbio']. '</textarea>
             <input type="submit" name="submit" value="Modificar datos">
         </form> 
     </section>';

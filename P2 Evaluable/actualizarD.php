@@ -7,7 +7,6 @@
 
     if(!$conn ) {
         $_SESSION['error']= "1"; 
-        header("Location: ./index.php");
     }
     else{
         session_start();
@@ -85,6 +84,11 @@
     else{
         $_SESSION['error']= "2";     
     }
+
+    if($_SESSION['error'] != "2"){
+        $_SESSION['error'] = "3";
+    }
+    
     mysqli_close($conn);
     header("Location: ./misdatos.php");
 ?>

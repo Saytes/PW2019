@@ -50,7 +50,7 @@
                                 
                                     header("Location: ./index.php");
                                 } else {                
-                                    $_SESSION['error']= "1";       
+                                    $_SESSION['error']= "4";       
                                     mysqli_close($conn);
                                 
                                     header("Location: ./altausuario.php");         

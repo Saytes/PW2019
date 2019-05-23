@@ -37,28 +37,6 @@
         $_SESSION['error']= "error";
     }
 
-   /* //Cojo los libros del usuario y le hago append a la variable books de session.
-    if(isset($_SESSION['userId'])){
-        $userId = $_SESSION["userId"];
-        $sql = "SELECT * FROM REVIEWS WHERE USERID= '$userId'";
-        $review = mysqli_query($conn, $sql);
-        if (mysqli_num_rows($review) > 0) {            
-            while($row = mysqli_fetch_assoc($review)) {
-                $sql2 = "SELECT * FROM BOOKS WHERE ID= '$row[BOOKID]'";
-                $book = mysqli_query($conn, $sql2);
-                $row2 = mysqli_fetch_assoc($book);
-                if(isset($_SESSION['books'])){
-                    $_SESSION['books'].=",".$row2['TITLE'];
-                } else {
-                    $_SESSION['books']=$row2['TITLE'];
-                }
-            }
-        }
-        else{
-            $_SESSION['books']="Aun no tienes ningún libro, ¡sube uno!";
-        }
-    }*/
-
     mysqli_close($conn);
 
     header("Location: ./index.php");

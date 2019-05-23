@@ -28,39 +28,6 @@
 
     }
     else{
-
-        if(isset($_SESSION['error'])){
-            if($_SESSION['error'] == "error"){
-                echo '
-                    <script>
-                        errorLogin();
-                    </script>
-                ';
-            }
-            else if($_SESSION['error'] == "0"){
-                echo '
-                    <script>                    
-                        registroCorrecto();
-                    </script>
-                ';
-            }
-            else if($_SESSION['error'] == "1"){
-                echo '
-                    <script>
-                        errorGenerico();
-                    </script>
-                ';
-            }
-            else if($_SESSION['error'] == "2"){
-                echo '
-                    <script>
-                        errorActualizar();
-                    </script>
-                ';
-            }
-            unset($_SESSION['error']);
-        }
-
         echo '
                     <form action="iniciarS.php" onsubmit="return validateLogin()" id="myform" name="myform" method="post">
                         <section>
@@ -77,5 +44,8 @@
             </header>   
         ';  
     }
+
+    //lanzo php de comprobación de errores.
+    include 'errores.php';
 ?>
 
