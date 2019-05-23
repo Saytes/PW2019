@@ -1,7 +1,7 @@
 Páginas a implementar:
 
 COMO SE HIZO -- escribir al final
-MISDATOS -- probar JUNTO A ACTUALIZAR D
+MISDATOS -- probar JUNTO A ACTUALIZAR D (NO SE MUESTRAN LOS MENSAJES DE ERROR)
 ALTA LIBRO -- terminar
 MISLIBROS -- consultar bd libros con el id del usuario que inició sesión.
 LIBRO1,2,3 -- consulto el libro cuando le hago click y relleno la página genérica.
