@@ -14,10 +14,6 @@ VALORACIÓNLIBRO1,2,3 -- consulto el libro cuando le hago click y relleno la pá
 FUNCIONALIDADES
 BASE DE DATOS, CAMBIAR TABLA USERS, BOOKS Y RELACIÓN ENTRE AMBAS
 
-1. A partir del formulario que se hizo en la primera práctica evaluable para
-que los usuarios del recomendador de libros se den de alta, dotarlo de funcionalidad para que se incorporen al sistema como miembros del
-mismo.
-
 4. Permitir que el usuario activo pueda crear un libro y ofrecer su opinión y
 valoración, así como modificar las de aquellos libros que haya dado de
 alta él.
@@ -37,7 +33,11 @@ formato correspondiente).
 8. Que el usuario pueda subir su foto a la web cuando se dé de alta. Esta se
 mostrará en “Mis Datos” (no se podrá modificar) y al pasar el ratón por la
 foto de un usuario, aparecerá una ventana emergente con los títulos de
-los libros que ha subido.
+los libros que ha subido. (PROBAR)
 
 
 -- https://www.w3schools.com/php/php_file_upload.asp -- https://www.w3schools.com/bootstrap/bootstrap_tooltip.asp
+
+alter tabla user añadir campo url imagen
+
+tooltip en mis datos con los libros que tengan el mismo id en review que el usuario actual.

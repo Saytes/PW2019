@@ -1,8 +1,15 @@
 <?php
     include 'header.php';
-    
+
     echo '<section class="alta">
-        <form action="actualizarD.php" onsubmit="return validateUpdateData()" id="misdatos" name="misdatos" class="misdatos" method="post">
+        <form action="actualizarD.php" onsubmit="return validateUpdateData()" id="misdatos" name="misdatos" class="misdatos" method="post">';
+            if(isset($_SESSION['image'])){
+                echo '<img src="'. $_SESSION["image"] . '" width=150px />';
+            }
+            else{
+                echo '<img src="imagenes/imagenb.jpg" alt=" Imagen" width="150px">';
+            }
+    echo '        
             <label><i>Nombre:</i></label>
             <input type="text" name="nombre" value="'. $_SESSION["username"] . '"></br>
             <label><i>Apellidos:</i></label>

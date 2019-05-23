@@ -28,7 +28,10 @@
         $_SESSION['usermail']= $row["EMAIL"];
         $_SESSION['userpass']= $row["PASSWORD"];  
         $_SESSION['userbirth']= $row["BIRTHDATE"];
-        $_SESSION['userbio']= $row["BIOGRAPHY"];      
+        $_SESSION['userbio']= $row["BIOGRAPHY"];    
+        if(isset($row['IMAGE'])){
+            $_SESSION["image"] = $row['IMAGE'];
+        }  
     }
     else{
         $_SESSION['error']= "error";
