@@ -4,10 +4,12 @@
     echo '<section class="alta">
         <form action="actualizarD.php" onsubmit="return validateUpdateData()" id="misdatos" name="misdatos" class="misdatos" method="post">';
             if(isset($_SESSION['image'])){
-                echo '<img src="'. $_SESSION["image"] . '" width=150px />';
+                if(isset($_SESSION['books'])){
+                    echo '<img src="'. $_SESSION["image"] . '" width=150px data-toggle="tooltip" data-placement="bottom" title="'. $_SESSION["books"] . '"/>';
+                }
             }
             else{
-                echo '<img src="imagenes/imagenb.jpg" alt=" Imagen" width="150px">';
+                echo '<img src="imagenes/imagenb.jpg" alt=" Imagen" width="150px" data-toggle="tooltip"/>';
             }
     echo '        
             <label><i>Nombre:</i></label>

@@ -27,12 +27,9 @@ direcciones de correo electrónico o URLs (todos validados según su
 formato correspondiente).
 
 8. Que el usuario pueda subir su foto a la web cuando se dé de alta. Esta se
-mostrará en “Mis Datos” (no se podrá modificar) y al pasar el ratón por la
+mostrará en “Mis Datos” (no se podrá modificar) (PROBAR).  y al pasar el ratón por la
 foto de un usuario, aparecerá una ventana emergente con los títulos de
-los libros que ha subido. (PROBAR)
-
-
--- https://www.w3schools.com/php/php_file_upload.asp -- https://www.w3schools.com/bootstrap/bootstrap_tooltip.asp
+los libros que ha subido.(PROBAR)
 
 alter tabla user añadir campo url imagen
 

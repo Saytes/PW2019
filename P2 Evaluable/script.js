@@ -49,3 +49,7 @@ function validateLogin()
 
     return true; 
 }
+
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+  });
