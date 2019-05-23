@@ -36,7 +36,13 @@
                         errorLogin();
                     </script>
                 ';
-                unset($_SESSION['error']);
+            }
+            else if($_SESSION['error'] == "0"){
+                echo '
+                    <script>                    
+                        registroCorrecto();
+                    </script>
+                ';
             }
             else if($_SESSION['error'] == "1"){
                 echo '
@@ -44,16 +50,15 @@
                         errorGenerico();
                     </script>
                 ';
-                unset($_SESSION['error']);
             }
-            else if($_SESSION['error'] == "0"){
+            else if($_SESSION['error'] == "2"){
                 echo '
                     <script>
-                        registroCorrecto();
+                        errorActualizar();
                     </script>
                 ';
-                unset($_SESSION['error']);
             }
+            unset($_SESSION['error']);
         }
 
         echo '

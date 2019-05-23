@@ -10,6 +10,10 @@ function errorGenerico() {
     window.alert("Ups, algo ha fallado. ¡Prueba otra vez!");
 }
 
+function errorActualizar() {
+    window.alert("Error al actualizar los datos. ¡Prueba otra vez!");
+}
+
 function validateLogin()                                    
 {          
     var email = document.forms["myform"]["email"];   

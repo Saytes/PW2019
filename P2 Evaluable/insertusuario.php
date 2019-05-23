@@ -6,11 +6,7 @@
     $conn = mysqli_connect($dbhost, $dbuser, $dbpass,$dbname);
 
     if(!$conn ) {
-        echo '
-            <script>
-                errorGenerico();
-            </script>
-        ';
+        $_SESSION['error']= "1"; 
         header("Location: ./altausuario.php");
     }
     else{

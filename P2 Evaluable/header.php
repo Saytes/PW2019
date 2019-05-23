@@ -13,7 +13,7 @@
             
             <header>
                 <section class="logo">
-                    <img src="imagenes/logo.png" alt="Logo de la página." width="175px"> 
+                <a href="index.php"><img src="imagenes/logo.png" alt="Logo de la página." width="175px"> </a>
                 </section>
 
                 <section class="titulo">

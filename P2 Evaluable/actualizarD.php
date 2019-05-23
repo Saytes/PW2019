@@ -7,6 +7,7 @@
     $conn = mysqli_connect($dbhost, $dbuser, $dbpass,$dbname);
 
     if(!$conn ) {
+        $_SESSION['error']= "1"; 
         header("Location: ./index.php");
     }
     else{
@@ -19,14 +20,14 @@
         $result = mysqli_query($conn, $sql);
 
         if (mysqli_num_rows($result) > 0) {
+            
             if(isset($_POST['email'])){
                 $email = $_POST['email'];
                 $alter = "UPDATE USERS SET USERS.EMAIL= '$email' WHERE USERS.ID = '$id'";
                 if (mysqli_query($conn, $alter)) {
                     $_SESSION['usermail']= $email;
-                    echo "Record updated successfully";
                 } else {
-                echo "Error updating record: " . mysqli_error($conn);
+                    $_SESSION['error']= "2";  
                 }
             }
 
@@ -34,10 +35,9 @@
                 $pass = $_POST['pass'];
                 $alter = "UPDATE USERS SET USERS.PASSWORD='$pass' WHERE USERS.ID = '$id'";
                 if (mysqli_query($conn, $alter)) {
-                    echo "Record updated successfully";
                     $_SESSION['userpass']= $pass;  
                 } else {
-                echo "Error updating record: " . mysqli_error($conn);
+                    $_SESSION['error']= "2"; 
                 }
             }
 
@@ -46,9 +46,8 @@
                 $alter = "UPDATE USERS SET USERS.NAME= '$nombre' WHERE USERS.ID = '$id'";
                 if (mysqli_query($conn, $alter)) {
                     $_SESSION['username']= $nombre; 
-                    echo "Record updated successfully";
                 } else {
-                echo "Error updating record: " . mysqli_error($conn);
+                    $_SESSION['error']= "2";   
                 }
             }
 
@@ -57,9 +56,8 @@
                 $alter = "UPDATE USERS SET USERS.LASTNAME= '$apellidos' WHERE USERS.ID = '$id'";
                 if (mysqli_query($conn, $alter)) {
                     $_SESSION['userlastname']= $apellidos; 
-                    echo "Record updated successfully";
                 } else {
-                echo "Error updating record: " . mysqli_error($conn);
+                    $_SESSION['error']= "2";  
                 }
             }
 
@@ -68,9 +66,8 @@
                 $alter = "UPDATE USERS SET USERS.BIOGRAPHY= '$biografia' WHERE USERS.ID = '$id'";
                 if (mysqli_query($conn, $alter)) {
                     $_SESSION['userbio']= $biografia;   
-                    echo "Record updated successfully";
                 } else {
-                echo "Error updating record: " . mysqli_error($conn);
+                    $_SESSION['error']= "2";  
                 }
             }
 
@@ -79,18 +76,16 @@
                 $alter = "UPDATE USERS SET USERS.BIRTHDATE= '$fechanacimiento' WHERE USERS.ID = '$id'";
                 if (mysqli_query($conn, $alter)) {
                     $_SESSION['userbirth']= $fechanacimiento; 
-                    echo "Record updated successfully";
                 } else {
-                echo "Error updating record: " . mysqli_error($conn);
+                    $_SESSION['error']= "2";    
                 }
             }
         }
+    
     }
     else{
-        echo 'No user Logged in';
+        $_SESSION['error']= "2";     
     }
-    
     mysqli_close($conn);
-
     header("Location: ./misdatos.php");
 ?>
