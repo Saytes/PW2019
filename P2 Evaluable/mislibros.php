@@ -3,7 +3,9 @@
     include "header.php";
     
     echo '
-    <h2 class="librosleidos">Mis libros leídos</h2>
+    <section class="librosleidos">
+        <h2>Mis libros leídos</h2>
+    </section>
     <section class="todoslibros">
         <article class="mislibrosleidos">
             <ul>

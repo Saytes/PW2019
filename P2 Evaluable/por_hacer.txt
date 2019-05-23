@@ -24,3 +24,5 @@ entradas deben tener una longitud máxima, deben existir en los
 formularios que correspondan valores numéricos, números de teléfonos y
 direcciones de correo electrónico o URLs (todos validados según su
 formato correspondiente). (IMPLEMENTADO HASTA EL MOMENTO)
+
+MYSQLI INJECTION https://websitebeaver.com/prepared-statements-in-php-mysqli-to-prevent-sql-injection
