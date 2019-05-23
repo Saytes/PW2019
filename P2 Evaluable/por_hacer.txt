@@ -38,3 +38,6 @@ formato correspondiente).
 mostrará en “Mis Datos” (no se podrá modificar) y al pasar el ratón por la
 foto de un usuario, aparecerá una ventana emergente con los títulos de
 los libros que ha subido.
+
+
+-- https://www.w3schools.com/php/php_file_upload.asp -- https://www.w3schools.com/bootstrap/bootstrap_tooltip.asp
