@@ -1,7 +1,7 @@
 Páginas a implementar:
 
 COMO SE HIZO -- escribir al final
-MISDATOS -- probar JUNTO A ACTUALIZAR D (NO SE MUESTRAN LOS MENSAJES DE ERROR)
+MISDATOS -- probar JUNTO A ACTUALIZAR D (NO SE MUESTRAN LOS MENSAJES DE ERROR) 
 ALTA LIBRO -- terminar
 MISLIBROS -- consultar bd libros con el id del usuario que inició sesión.
 LIBRO1,2,3 -- consulto el libro cuando le hago click y relleno la página genérica.
@@ -17,7 +17,7 @@ alta él.
 5. Que cualquier usuario pueda ver los libros que hay en el sistema dados
 de alta y expresar su opinión y poder modificarla en cualquier momento.
 
-6. Que el usuario activo pueda modificar sus datos personales. --FALTAN MENSAJES DE ERROR
+6. Que el usuario activo pueda modificar sus datos personales. -- FALTAN MENSAJES DE ERROR
 
 7. Validar la corrección de todos los formularios (con JavaScript). En relación
 a los formularios, deben existir campos obligatorios, los comentarios a las
@@ -27,10 +27,4 @@ direcciones de correo electrónico o URLs (todos validados según su
 formato correspondiente).
 
 8. Que el usuario pueda subir su foto a la web cuando se dé de alta. Esta se
-mostrará en “Mis Datos” (no se podrá modificar) (PROBAR).  y al pasar el ratón por la
-foto de un usuario, aparecerá una ventana emergente con los títulos de
-los libros que ha subido.(PROBAR)
-
-alter tabla user añadir campo url imagen
-
-tooltip en mis datos con los libros que tengan el mismo id en review que el usuario actual.
+mostrará en “Mis Datos” (no se podrá modificar) (NO SE PUEDE SUBIR IMAGEN AL SERVIDOR).
