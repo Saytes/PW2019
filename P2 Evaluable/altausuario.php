@@ -3,7 +3,7 @@
 
 
     echo '<section class="alta-usuario">
-        <form action="insertusuario.php" onsubmit="return validateUpdateData()" id="misdatos" name="misdatos" class="misdatos" method="post" enctype="multipart/form-data">
+        <form action="insertusuario.php" onsubmit="return validateUpdateData()" id="misdatos" name="misdatos" class="misdatos" method="post">
             <label><i>Selecciona una imagen para subir:</i></label>
             <input type="file" name="fileToUpload" id="fileToUpload">    
             <label><i>Nombre:</i></label>
