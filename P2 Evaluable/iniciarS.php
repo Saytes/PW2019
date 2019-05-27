@@ -14,30 +14,39 @@
     }
 
     if( (isset($_POST['email'])) and (isset($_POST['pass']))){
-        $email = $_POST['email'];
-        $pass = $_POST['pass'];
-        $sql = "SELECT * FROM USERS WHERE EMAIL= '$email' AND PASSWORD= '$pass'";
-        $result = mysqli_query($conn, $sql);
-    }    
+        $correo = $_POST['email'];
+        $contraseña = $_POST['pass'];
+        if($stmt = $conn->prepare("SELECT * FROM USERS WHERE EMAIL=? and PASSWORD= ?")){
+            $stmt->bind_param("ss", $correo, $contraseña);
+            $stmt->execute();
+            $stmt->store_result();
+            $stmt->bind_result($ID, $NAME, $LASTNAME, $EMAIL, $PASSWORD, $BIRTHDATE, $BIOGRAPHY, $IMAGE);
+            
+            if ($stmt->num_rows > 0) {
+                while($row = $stmt->fetch()){
+                    $_SESSION['userId']= $ID;   
+                    $_SESSION['username']= $NAME;
+                    $_SESSION['userlastname']= $LASTNAME;
+                    $_SESSION['usermail']= $EMAIL;
+                    $_SESSION['userpass']= $PASSWORD;  
+                    $_SESSION['userbirth']= $BIRTHDATE;
+                    $_SESSION['userbio']= $BIOGRAPHY;    
 
-    if (mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_assoc($result);
-        $_SESSION['userId']= $row["ID"];   
-        $_SESSION['username']= $row["NAME"]; 
-        $_SESSION['userlastname']= $row["LASTNAME"];
-        $_SESSION['usermail']= $row["EMAIL"];
-        $_SESSION['userpass']= $row["PASSWORD"];  
-        $_SESSION['userbirth']= $row["BIRTHDATE"];
-        $_SESSION['userbio']= $row["BIOGRAPHY"];    
-        if(isset($row['IMAGE'])){
-            $_SESSION["image"] = $row['IMAGE'];
-        }  
+                    if(isset($IMAGE)){
+                        $_SESSION["image"] = $IMAGE;
+                    }  
+                }
+            }
+            else{
+                $_SESSION['error']= "error";
+            }
+        }
+        else{
+            $_SESSION['error']= "error";
+        }
     }
-    else{
-        $_SESSION['error']= "error";
-    }
-
+    
+    $stmt->close();
     mysqli_close($conn);
-
     header("Location: ./index.php");
 ?>

@@ -10,25 +10,40 @@
     //Cojo los libros del usuario y le hago append a la variable books de session.
     if(isset($_SESSION['userId'])){
         $userId = $_SESSION["userId"];
-        $sql = "SELECT * FROM REVIEWS WHERE USERID= '$userId'";
-        $review = mysqli_query($conn, $sql);
-        if (mysqli_num_rows($review) > 0) {      
-            unset($_SESSION['books']);      
-            while($row = mysqli_fetch_assoc($review)) {
-                $sql2 = "SELECT * FROM BOOKS WHERE ID= '$row[BOOKID]'";
-                $book = mysqli_query($conn, $sql2);
-                $row2 = mysqli_fetch_assoc($book);
-                if(isset($_SESSION['books'])){
-                    $_SESSION['books'].=",".$row2['TITLE'];
-                } else {
-                    $_SESSION['books']=$row2['TITLE'];
+        if($stmt = $conn->prepare("SELECT BOOKID FROM REVIEWS WHERE USERID= ?")){
+            $stmt->bind_param("i", $userId);
+            $stmt->execute();
+            $stmt->store_result();
+            $stmt->bind_result($bookId);
+
+            if ($stmt->num_rows > 0) {       
+                unset($_SESSION['books']);      
+                while($row = $stmt->fetch()){
+                    if($stmt2 = $conn->prepare("SELECT TITLE FROM BOOKS WHERE ID=?")){
+                        $stmt2->bind_param("i", $bookId);
+                        $stmt2->execute();
+                        $stmt2->store_result();
+                        $stmt2->bind_result($title);
+                        if ($stmt->num_rows > 0) { 
+                            $row2 = $stmt2->fetch();
+                            if(isset($_SESSION['books'])){
+                                $_SESSION['books'].=",".$title;
+                            } else {
+                                $_SESSION['books']=$title;
+                            }
+                        }
+                        $stmt2->close();
+                    }
                 }
             }
+            else{
+                $_SESSION['books']="Aun no tienes ningún libro, ¡sube uno!";
+            }
+            $stmt->close();
         }
-        else{
-            $_SESSION['books']="Aun no tienes ningún libro, ¡sube uno!";
-        }
-    }
+    }        
+    mysqli_close($conn);
+
     echo '<section class="alta">
         <form action="actualizarD.php" onsubmit="return validateUpdateData()" id="misdatos" name="misdatos" class="misdatos" method="post">';
             if(isset($_SESSION['image'])){

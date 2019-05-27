@@ -22,8 +22,3 @@ entradas deben tener una longitud máxima, deben existir en los
 formularios que correspondan valores numéricos, números de teléfonos y
 direcciones de correo electrónico o URLs (todos validados según su
 formato correspondiente). (IMPLEMENTADO HASTA EL MOMENTO)
-
-actualizarD, inserusuario, iniciarS
-https://www.formget.com/sql-injection-prevention-in-php-with-mysqli/
-
-Implementada a mitad en actualizarD, hay que probarla.
