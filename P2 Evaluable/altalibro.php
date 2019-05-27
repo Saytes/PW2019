@@ -4,7 +4,7 @@
 
    echo '<section class="cabecera-libroleidox">
         <img src="imagenes/imagenb.jpg" alt=" Imagen" width="150px">
-        <form action="insertlibro.php" onsubmit="return validateBook()" id="altalibro" name="altalibro" class="altalibro" method="post" enctype="multipart/form-data">
+        <form action="insertlibro.php" onsubmit="return validateBook()" id="altalibro" name="altalibro" class="altalibro" method="post">
             <ul class="cabecera-datos">
                 <li>
                     <p>TÍTULO: <input type="text" name="titulo"></br></p>
@@ -32,7 +32,11 @@
                 </li>
             </ul>
             </form>
-    </section>
+    </section>';
+
+    //AQUI EMPIEZA LA PARTE DE VALORACIÓN
+
+    echo '
     <section class="campos-libroleidox">
         <h1>Descripci&oacute;n</h1>        
         <textarea class="nuevaopinion" name="opinion" cols="100" rows="20"></textarea>

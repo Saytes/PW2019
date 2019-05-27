@@ -14,15 +14,30 @@
 
     if(isset($_SESSION["userId"])){
         $id = $_SESSION["userId"];
-        $sql = "SELECT * FROM USERS WHERE ID= '$id'";
-        $result = mysqli_query($conn, $sql);
-
-        if (mysqli_num_rows($result) > 0) {
-            
+        /*$sql = "SELECT * FROM USERS WHERE ID= '$id'";
+        $result = mysqli_query($conn, $sql);       
+        if (mysqli_num_rows($result) > 0) {*/
+        
+        $stmt = $conn->prepare("SELECT * FROM USERS WHERE ID=?");
+        // Bind parameters s - string, b - boolean, i - int, etc si son dos "ss" o tres "sss" y así
+        $stmt->bind_param("s", $id);
+        // Execute SQL
+        $stmt->execute();
+        // Store result
+        $stmt->store_result();
+        // Bind the result
+        $stmt->bind_result($id);
+       
+        if ($stmt->num_rows > 0) {    
             if(isset($_POST['email'])){
                 $email = $_POST['email'];
-                $alter = "UPDATE USERS SET USERS.EMAIL= '$email' WHERE USERS.ID = '$id'";
-                if (mysqli_query($conn, $alter)) {
+                //$alter = "UPDATE USERS SET USERS.EMAIL= '$email' WHERE USERS.ID = '$id'";
+                $alter = $conn->prepare("UPDATE USERS SET USER.EMAIL = ? WHERE USERS.ID = ?");
+                $alter->bind_param("ss", $email, $id);
+                
+                $alter->store_result();
+
+                if ($alter->execute()) {
                     $_SESSION['usermail']= $email;
                 } else {
                     $_SESSION['error']= "2";  
