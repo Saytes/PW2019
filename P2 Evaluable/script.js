@@ -2,6 +2,10 @@ function errorLogin() {
     window.alert("Email o Contraseña incorrectos.");
 }
 
+function libroCorrecto() {
+    window.alert("Libro añadido correctamente.");
+}
+
 function registroCorrecto() {
     window.alert("Registro realizado con éxito, se te redirigirá a la página principal para que puedas iniciar sesión.");
 }

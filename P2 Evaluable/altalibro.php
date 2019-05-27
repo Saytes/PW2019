@@ -3,7 +3,7 @@
 
 
    echo '<section class="cabecera-libroleidox">
-        <img src="imagenes/imagenb.jpg" alt=" Imagen" width="150px">
+        <img class="foto-libro"src="imagenes/imagenb.jpg" alt=" Imagen" width="150px">
         <form action="insertlibro.php" onsubmit="return validateBook()" id="altalibro" name="altalibro" class="altalibro" method="post">
             <ul class="cabecera-datos">
                 <li>
@@ -15,7 +15,7 @@
                 </li>
                 <li >
                     <p>EDITORIAL: 
-                        <select>
+                        <select name="editorial">
                             <option value="0"></option>
                             <option value="1">Editorial 1</option>
                             <option value="2">Editorial 2</option>
@@ -31,9 +31,11 @@
                     <p>EDICI&Oacute;N: <input type="text" name="edicion"></br></p>
                 </li>
             </ul>
+
+            <input type="submit" name="submit" value="Alta libro">    
             </form>
     </section>';
-
+/*
     //AQUI EMPIEZA LA PARTE DE VALORACIÓN
 
     echo '
@@ -56,10 +58,10 @@
             <input type="radio" name="valoracion" value="3"> 3
             <input type="radio" name="valoracion" value="4"> 4
             <input type="radio" name="valoracion" value="5"> 5
-        </form> 
-        <a href="mislibros.html"><button type="submit" >Alta libro</button></a>        
+        </form>             
+        <input type="submit" name="submit" value="Alta Usuario">       
     </section>
     ';
-    
+    */
     include 'footer.php';
 ?>

@@ -58,7 +58,7 @@
         
         <h1 class="tituloultimoslibros">T&iacute;tulo de los &uacute;ltimos libros a&ntilde;adidos a la aplicaci&oacute;n</h1>    
         
-        <a class="altalibro" href="altalibro.html">Dar de alta un nuevo libro</a> 
+        <a class="altalibro" href="altalibro.php">Dar de alta un nuevo libro</a> 
 
         </aside>
     </section>  

@@ -43,6 +43,13 @@
                 </script>
             ';
         }
+        else if($_SESSION['error'] == "5"){
+            echo '
+                <script>
+                    libroCorrecto();
+                </script>
+            ';
+        }
         unset($_SESSION['error']);
         
     }
