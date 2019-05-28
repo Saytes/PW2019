@@ -46,7 +46,7 @@
         else if($_SESSION['error'] == "5"){
             echo '
                 <script>
-                    libroCorrecto();
+                    deseasValorar();
                 </script>
             ';
         }

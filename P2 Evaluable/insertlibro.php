@@ -34,13 +34,12 @@
                     $insert->close();                                            
                     mysqli_close($conn);
                 
-                    header("Location: ./mislibros.php");
                 } else {                
                     $_SESSION['error']= "1";   
                     $insert->close();          
                     mysqli_close($conn);
                 
-                    header("Location: ./altalibro.php");         
+                    header("Location: ./deseasValorar.php");         
                 }
             }
             

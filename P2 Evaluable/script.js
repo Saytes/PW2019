@@ -26,6 +26,14 @@ function correoRepetido() {
     window.alert("El correo que has introducido ya está en nuestra Base de datos, prueba a iniciar sesión.");
 }
 
+function deseasValorar(){
+    var r = confirm("Libro insertado con éxito. ¿Deseas valorar el libro ahora?");
+
+    if(r == true)
+        window.location.replace("valorarLibro.php");
+    else    
+        window.location.replace("index.php");
+}
 
 function validateLogin()                                    
 {          
