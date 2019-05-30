@@ -33,13 +33,25 @@
                     $_SESSION['error']= "5"; 
                     $insert->close();                                            
                     mysqli_close($conn);
-                
+                    
+                    //GUARDO INFORMACIÓN DEL LIBRO.
+                    $_SESSION['titulo'] = $titulo; 
+                    $_SESSION['autor'] = $autor; 
+                    $_SESSION['editorial'] = $editorial; 
+                    $_SESSION['anio'] = $anio; 
+                    $_SESSION['edicion'] = $edicion; 
+                    
+                    echo ' 
+                        <script>
+                            deseasValorar();
+                        </script>';
                 } else {                
                     $_SESSION['error']= "1";   
                     $insert->close();          
                     mysqli_close($conn);
-                
-                    header("Location: ./deseasValorar.php");         
+                    
+                    header("Location: ./altalibro.php");  
+                       
                 }
             }
             
