@@ -73,7 +73,7 @@
 
     echo '
     <section class="campos-libroleidox">
-        <form class="valoracion-libroleidox" action="valoracion.php" onsubmit="return reviewBook()" id="valorarLibro" name="valorarLibro" class="valorarLibro" method="post" >
+        <form class="valoracion-libroleidox" action="valoracion.php" id="valorarLibro" name="valorarLibro" class="valorarLibro" method="post" >
             <h1>Descripci&oacute;n</h1>';
             if(isset($_SESSION['desc'])){ 
                echo' <textarea class="nuevaopinion" name="descripcion" cols="100" rows="20">' .$_SESSION["desc"]. '</textarea>';

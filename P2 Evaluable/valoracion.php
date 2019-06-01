@@ -56,8 +56,26 @@
                                 }
                             }
                             else{
-                                $_SESSION['error']= "1";
-                                header("Location: ./altalibro.php");   
+                                if($insert = $conn->prepare('INSERT INTO BOOKS(TITLE, AUTOR, EDITORIAL, YEAR, EDITION, DESCRIPTION, OPINION, MYREVIEW, USERID) VALUES(?,?,?,?,?,?,?,?,?);')){
+                                    $insert->bind_param("sssisssii", $_SESSION["titulo"], $_SESSION["autor"], $_SESSION["editorial"], $_SESSION["anio"], $_SESSION["edicion"], $descripcion, $opinion, $valoracion, $userId);
+                                    $insert->store_result();  
+
+                                    if ($insert->execute()){                    
+                                        $_SESSION['error']= "6"; 
+                                        $insert->close();                                            
+                                        mysqli_close($conn);
+                                        
+                                        header("Location: ./mislibros.php");
+                                        
+                                    } else {                
+                                        $_SESSION['error']= "1";   
+                                        $insert->close();          
+                                        mysqli_close($conn);
+                                        
+                                        header("Location: ./valorarLibro.php");  
+                                           
+                                    }
+                                }
                             }
                         }
                 }
