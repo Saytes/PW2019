@@ -7,50 +7,76 @@
 
     if(!$conn ) {
         $_SESSION['error']= "1"; 
-        header("Location: ./altausuario.php");
+        header("Location: ./valorarLibro.php");
     }
     else{
         session_start();
     }
 
-    if(isset($_SESSION["userId"])){
+    if(isset($_SESSION["userId"]) && !empty($_SESSION['userId'])){
         if((isset($_SESSION['titulo'])) && !empty($_SESSION['titulo']) 
         && (isset($_SESSION['autor'])) && !empty($_SESSION['autor']) 
         && (isset($_POST['valoracion'])) && !empty($_POST['valoracion'])
         && (isset($_POST['descripcion'])) && !empty($_POST['descripcion'])
         && (isset($_POST['opinion'])) && !empty($_POST['opinion'])){
-            $usedId = $_SESSION["userId"];
+            $userId = $_SESSION["userId"];
             $titulo = $_SESSION['titulo'];
             $autor = $_SESSION['autor'];
             $valoracion = $_POST['valoracion'];
             $descripcion = $_POST['descripcion'];
             $opinion = $_POST['opinion'];
-
-            //Falta selección del BookID previamente.
-
-            if($insert = $conn->prepare("INSERT INTO REVIEWS(USERID, BOOKID, DESCRIPTION, OPINION, MYREVIEW) VALUES(?,?,?,?,?)")){
-                $insert->bind_param("iissi", $userId, $bookId, $descripcion, $opinion, $valoracion);
-                $insert->store_result();                                           
-                if ($insert->execute()){
-
-                    $_SESSION['error']= "5"; 
-                    $insert->close();                                            
-                    mysqli_close($conn);
-
-                } else {                
-                    $_SESSION['error']= "1";   
-                    $insert->close();          
-                    mysqli_close($conn);
+ 
+            if($stmt = $conn->prepare("SELECT ID, USERID FROM BOOKS WHERE TITLE=? and AUTOR=?")){
+                $stmt->bind_param("ss", $titulo, $autor);
+                $stmt->execute();
+                $stmt->store_result();
+                $stmt->bind_result($BI, $ui);
+                
+                if ($stmt->num_rows > 0) {
+                        while($row = $stmt->fetch()){                               
+                            if($ui == $userId){  
+                                if($update = $conn->prepare("UPDATE BOOKS SET BOOKS.DESCRIPTION = ?, BOOKS.OPINION=?, BOOKS.MYREVIEW=? WHERE BOOKS.ID=? AND BOOKS.USERID=?")){
+                                    $update->bind_param("ssiii", $descripcion, $opinion, $valoracion, $BI, $userId);
+                                    $update->store_result();          
+                                    
+                                    if ($update->execute()){
                     
-                    header("Location: ./mislibros.php");                         
+                                        $_SESSION['error']= "6"; 
+                                        $update->close();                                            
+                                        mysqli_close($conn);
+                                        header("Location: ./mislibros.php");      
+                    
+                                    } else {                
+                                        $_SESSION['error']= "7";   
+                                        $update->close();          
+                                        mysqli_close($conn);
+                                    
+                                        header("Location: ./valorarLibro.php");                         
+                                    }
+                                }
+                            }
+                            else{
+                                $_SESSION['error']= "1";
+                                header("Location: ./altalibro.php");   
+                            }
+                        }
                 }
+                else{
+                    $_SESSION['error']= "8"; 
+                    header("Location: ./altalibro.php");   
+                }
+            }
+            else{
+                $_SESSION['error']= "7";
+                header("Location: ./valorarLibro.php");   
+
             }
             
         } else {
             $_SESSION['error']= "1";   
             mysqli_close($conn);
         
-            header("Location: ./mislibros.php");         
+            header("Location: ./valorarLibro.php");         
         }
     }
 ?>

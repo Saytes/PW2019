@@ -10,7 +10,7 @@
     //Cojo los libros del usuario y le hago append a la variable books de session.
     if(isset($_SESSION['userId'])){
         $userId = $_SESSION["userId"];
-        if($stmt = $conn->prepare("SELECT BOOKID FROM REVIEWS WHERE USERID= ?")){
+        if($stmt = $conn->prepare("SELECT ID FROM BOOKS WHERE USERID= ?")){
             $stmt->bind_param("i", $userId);
             $stmt->execute();
             $stmt->store_result();

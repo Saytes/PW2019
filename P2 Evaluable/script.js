@@ -32,7 +32,19 @@ function deseasValorar(){
     if(r == true)
         window.location.replace("valorarLibro.php");
     else    
-        window.location.replace("index.php");
+        window.location.replace("mislibros.php");
+}
+
+function valoradoExito() {
+    window.alert("La valoración se ha realizado con éxito.");
+}
+
+function falloValorar() {
+    window.alert("Fallo al valorar el libro. Prueba otra vez.");
+}
+
+function notulibro() {
+    window.alert("¡Da de alta el libro para poder valorarlo!");
 }
 
 function validateLogin()                                    

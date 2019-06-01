@@ -19,9 +19,7 @@
         echo    '<section class="menuS">
                     <ul class="menuSeccion">
                         <li><a href="mislibros.php"> Mis Libros</a></li>        
-                        <li><a href="foro.php"> Foro</a></li>
                         <li><a href="misdatos.php"> Mis Datos</a></li>
-                        <li><a href="misrecomendaciones.php"> Mis Recomendaciones</a></li>
                     </ul>
                 </section>
         ';

@@ -1,17 +1,9 @@
 Páginas a implementar:
 
 COMO SE HIZO -- escribir al final
-MISLIBROS -- consultar bd libros con el id del usuario que inició sesión.
 LIBRO1,2,3 -- consulto el libro cuando le hago click y relleno la página genérica.
-LIBROLEÍDO1,2,3 -- consulto el libro cuando le hago click y relleno la página genérica.
 VALORACIÓNLIBRO1,2,3 -- consulto el libro cuando le hago click y relleno la página genérica.
-MISRECOMENDACIONES -- consulto el libro cuando le hago click y relleno la página genérica.
-"FORO - HILO1,2,3 - ALTA HILO"
-
-4. Permitir que el usuario activo pueda crear un libro y ofrecer su opinión y
-valoración, así como modificar las de aquellos libros que haya dado de
-alta él.
-
+-
 5. Que cualquier usuario pueda ver los libros que hay en el sistema dados
 de alta y expresar su opinión y poder modificarla en cualquier momento.
 

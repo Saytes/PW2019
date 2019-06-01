@@ -1,8 +1,43 @@
 <?php
     include 'header.php';
 
+    if(isset($_GET['a']) && !empty($_GET['a'])) /*you can validate the link here*/{
+        $dbhost = 'localhost';
+        $dbuser = 'x75930719';
+        $dbpass = '75930719';
+        $dbname = 'db75930719_pw1819';
+        $conn = mysqli_connect($dbhost, $dbuser, $dbpass,$dbname);
 
-   echo '<section class="cabecera-libroleidox">
+        $_SESSION['titulo']=$_GET['a'];
+        if($stmt = $conn->prepare("SELECT AUTOR, EDITORIAL, EDITION, YEAR, DESCRIPTION, OPINION, MYREVIEW FROM BOOKS WHERE TITLE=?")){
+            $stmt->bind_param("s", $_SESSION['titulo']);
+            $stmt->execute();
+            $stmt->store_result();
+            $stmt->bind_result($AUTOR, $EDITORIAL, $EDITION, $YEAR, $DES, $OP, $MR);
+            if ($stmt->num_rows > 0) {
+                while($row = $stmt->fetch()){
+                    $_SESSION["autor"] = $AUTOR;
+                    $_SESSION["editorial"] = $EDITORIAL;
+                    $_SESSION["anio"] = $YEAR;
+                    $_SESSION["edicion"] = $EDITION;
+
+                    
+                    if(isset($DES)){
+                        $_SESSION["desc"] = $DES;
+                    }  
+                    if(isset($OP)){
+                        $_SESSION["op"] = $OP;
+                    } 
+                    if(isset($MR)){
+                        $_SESSION["mr"] = $MR;
+                    }  
+                }
+            }
+        }
+        unset($_GET['a']);
+    }
+
+    echo '<section class="cabecera-libroleidox">
         <img class="foto-libro"src="imagenes/imagenb.jpg" alt=" Imagen" width="150px">
         <form action="insertlibro.php" onsubmit="return validateBook()" id="altalibro" name="altalibro" class="altalibro" method="post">
             <ul class="cabecera-datos">
@@ -15,8 +50,8 @@
                 </li>
                 <li >
                     <p>EDITORIAL: 
-                        <select name="editorial"  value= "' .$_SESSION["editorial"]. '" disabled>
-                            <option value="0"></option>
+                        <select name="editorial" disabled>
+                            <option value= "0" selected>Editorial ' .$_SESSION["editorial"]. '</option>
                             <option value="1">Editorial 1</option>
                             <option value="2">Editorial 2</option>
                             <option value="3">Editorial 3</option>
@@ -38,20 +73,87 @@
 
     echo '
     <section class="campos-libroleidox">
-        <form class="valoracion-libroleidox" action="valoracion.php" onsubmit="return reviewBook()" id="valorarLibro" name="valorarLibro" class="valorarLibro" method="post>
-            <h1>Descripci&oacute;n</h1>        
-            <textarea class="nuevaopinion" name="descripcion" cols="100" rows="20"></textarea>
+        <form class="valoracion-libroleidox" action="valoracion.php" onsubmit="return reviewBook()" id="valorarLibro" name="valorarLibro" class="valorarLibro" method="post" >
+            <h1>Descripci&oacute;n</h1>';
+            if(isset($_SESSION['desc'])){ 
+               echo' <textarea class="nuevaopinion" name="descripcion" cols="100" rows="20">' .$_SESSION["desc"]. '</textarea>';
+               unset($_SESSION['desc']);
+            }
+            else{
+                echo' <textarea class="nuevaopinion" name="descripcion" cols="100" rows="20"></textarea>';
+            }
+            echo' 
+            <h1>Opini&oacute;n</h1> ';      
+            if(isset($_SESSION['op'])){ 
+                echo' <textarea class="nuevaopinion" name="opinion" cols="100" rows="20">' .$_SESSION["op"]. '</textarea>';
+                unset($_SESSION['op']);
+            }
+            else{
+                echo' <textarea class="nuevaopinion" name="opinion" cols="100" rows="20"></textarea>';
+            }
 
-            <h1>Opini&oacute;n</h1>        
-            <textarea class="nuevaopinion" name="opinion" cols="100" rows="20"></textarea>
-
-            <h1>Mi valoraci&oacute;n</h1>
-                <input type="radio" name="valoracion" value="1"> 1
-                <input type="radio" name="valoracion" value="2"> 2
-                <input type="radio" name="valoracion" value="3"> 3
-                <input type="radio" name="valoracion" value="4"> 4
-                <input type="radio" name="valoracion" value="5"> 5           
-            <input type="submit" name="submit" value="Alta libro">        
+            echo' 
+            <h1>Mi valoraci&oacute;n</h1>';
+            if(isset($_SESSION['mr'])){ 
+                
+                if($_SESSION['mr'] == "1"){
+                echo'
+                    <input type="radio" name="valoracion" value="1" checked> 1
+                    <input type="radio" name="valoracion" value="2"> 2
+                    <input type="radio" name="valoracion" value="3"> 3
+                    <input type="radio" name="valoracion" value="4"> 4
+                    <input type="radio" name="valoracion" value="5"> 5
+                ';
+                }
+                else if($_SESSION['mr'] == "2" ){
+                    echo'
+                        <input type="radio" name="valoracion" value="1"> 1
+                        <input type="radio" name="valoracion" value="2" checked> 2
+                        <input type="radio" name="valoracion" value="3"> 3
+                        <input type="radio" name="valoracion" value="4"> 4
+                        <input type="radio" name="valoracion" value="5"> 5
+                    ';
+                }
+                else if($_SESSION['mr'] == "3"){
+                    echo'
+                        <input type="radio" name="valoracion" value="1"> 1
+                        <input type="radio" name="valoracion" value="2"> 2
+                        <input type="radio" name="valoracion" value="3" checked> 3
+                        <input type="radio" name="valoracion" value="4"> 4
+                        <input type="radio" name="valoracion" value="5"> 5
+                    ';
+                }
+                else if($_SESSION['mr'] == "4" ){
+                    echo'
+                        <input type="radio" name="valoracion" value="1"> 1
+                        <input type="radio" name="valoracion" value="2"> 2
+                        <input type="radio" name="valoracion" value="3"> 3
+                        <input type="radio" name="valoracion" value="4" checked> 4
+                        <input type="radio" name="valoracion" value="5"> 5
+                    ';
+                }
+                else if($_SESSION['mr'] == "5" ){
+                    echo'
+                        <input type="radio" name="valoracion" value="1"> 1
+                        <input type="radio" name="valoracion" value="2"> 2
+                        <input type="radio" name="valoracion" value="3"> 3
+                        <input type="radio" name="valoracion" value="4"> 4
+                        <input type="radio" name="valoracion" value="5" checked> 5
+                    ';
+                }
+                unset($_SESSION['mr']);
+            }
+            else{
+                echo'
+                    <input type="radio" name="valoracion" value="1"> 1
+                    <input type="radio" name="valoracion" value="2"> 2
+                    <input type="radio" name="valoracion" value="3"> 3
+                    <input type="radio" name="valoracion" value="4"> 4
+                    <input type="radio" name="valoracion" value="5"> 5
+                ';
+            } 
+    echo'         
+            <input type="submit" name="submit" value="Valorar libro">        
         </form>  
     </section>
     ';

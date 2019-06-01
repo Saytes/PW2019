@@ -19,14 +19,15 @@
         && (isset($_POST['editorial'])) && !empty($_POST['editorial'])
         && (isset($_POST['anio'])) && !empty($_POST['anio'])
         && (isset($_POST['edicion'])) && !empty($_POST['edicion'])){
+            $userID = $_SESSION["userId"];
             $titulo = $_POST['titulo'];
             $autor = $_POST['autor'];
             $editorial = $_POST['editorial'];
             $anio = $_POST['anio'];
             $edicion = $_POST['edicion'];
 
-            if($insert = $conn->prepare("INSERT INTO BOOKS(TITLE, AUTOR, EDITORIAL, YEAR, EDITION) VALUES(?,?,?,?,?)")){
-                $insert->bind_param("sssis", $titulo, $autor, $editorial, $anio, $edicion);
+            if($insert = $conn->prepare("INSERT INTO BOOKS(TITLE, AUTOR, EDITORIAL, YEAR, EDITION, USERID) VALUES(?,?,?,?,?,?)")){
+                $insert->bind_param("sssisi", $titulo, $autor, $editorial, $anio, $edicion, $userID);
                 $insert->store_result();                                           
                 if ($insert->execute()){
 
@@ -41,10 +42,8 @@
                     $_SESSION['anio'] = $anio; 
                     $_SESSION['edicion'] = $edicion; 
                     
-                    echo ' 
-                        <script>
-                            deseasValorar();
-                        </script>';
+                    header("Location: ./altalibro.php");
+                    
                 } else {                
                     $_SESSION['error']= "1";   
                     $insert->close();          
@@ -56,7 +55,7 @@
             }
             
         } else {
-            $_SESSION['error']= "1";   
+            $_SESSION['error']= "2";   
             mysqli_close($conn);
         
             header("Location: ./altalibro.php");         

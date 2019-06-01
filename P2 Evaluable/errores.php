@@ -50,6 +50,27 @@
                 </script>
             ';
         }
+        else if($_SESSION['error'] == "6"){
+            echo '
+                <script>
+                    valoradoExito();
+                </script>
+            ';
+        }
+        else if($_SESSION['error'] == "7"){
+            echo '
+                <script>
+                    falloValorar();
+                </script>
+            ';
+        }
+        else if($_SESSION['error'] == "7"){
+            echo '
+                <script>
+                    notulibro();
+                </script>
+            ';
+        }
         unset($_SESSION['error']);
         
     }
