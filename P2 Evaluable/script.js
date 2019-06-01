@@ -169,6 +169,83 @@ function validateUpdateData()
     return true; 
 }
 
+function validateBook()                                    
+{          
+    var titulo = document.forms["altalibro"]["titulo"];   
+    var autor = document.forms["altalibro"]["autor"];       
+    var editorial = document.forms["altalibro"]["editorial"]; 
+    var selectedValue = editorial.options[editorial.selectedIndex].value;
+    var anio = document.forms["altalibro"]["anio"];     
+    var edicion = document.forms["altalibro"]["edicion"];     
+   
+    if (titulo.value == "")                                  
+    { 
+        window.alert("Por favor, introduce un título para el libro."); 
+        pass.focus(); 
+        return false; 
+    } 
+       
+    if (autor.value == "")                                   
+    { 
+        window.alert("Por favor introduce un autor para el libro."); 
+        email.focus(); 
+        return false; 
+    } 
+
+    if (selectedValue.value == 0)                                  
+    { 
+        window.alert("Por favor, selecciona una editorial para el libro."); 
+        pass.focus(); 
+        return false; 
+    } 
+       
+    if (anio.value == "")                                   
+    { 
+        window.alert("Por favor introduce un año para el libro."); 
+        email.focus(); 
+        return false; 
+    } 
+    
+    if (edicion.value == "")                                  
+    { 
+        window.alert("Por favor, introduce una edicion para el libro."); 
+        pass.focus(); 
+        return false; 
+    } 
+
+    return true; 
+}
+
+function validateReview()
+{
+    var desc = document.forms["valorarLibro"]["descripcion"];   
+    var op = document.forms["valorarLibro"]["opinion"];       
+    var val = document.forms["valorarLibro"]["valoracion"];  
+   
+    if (desc.value == "")                                  
+    { 
+        window.alert("Por favor, introduce una descripción para la valoración del libro."); 
+        pass.focus(); 
+        return false; 
+    } 
+       
+    if (op.value == "")                                   
+    { 
+        window.alert("Por favor introduce una opinión para la valoración del libro."); 
+        email.focus(); 
+        return false; 
+    } 
+       
+    if (val.value == "")                                   
+    { 
+        window.alert("Por favor selecciona una puntuación para el libro."); 
+        email.focus(); 
+        return false; 
+    } 
+    
+    return true; 
+}
+
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
   });

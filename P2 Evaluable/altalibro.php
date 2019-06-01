@@ -25,7 +25,7 @@
                         </select>
                 </li>
                 <li >
-                    <p>AÑO: <input type="text" name="anio" pattern="[1-9]*"></br></p>
+                    <p>AÑO: <input type="text" name="anio" pattern="[1-9]*" minlength=4 maxlength=4></br></p>
                 </li>
                 <li >
                     <p>EDICI&Oacute;N: <input type="text" name="edicion"></br></p>
@@ -35,33 +35,6 @@
             <input type="submit" name="submit" value="Alta libro">    
             </form>
     </section>';
-/*
-    //AQUI EMPIEZA LA PARTE DE VALORACIÓN
 
-    echo '
-    <section class="campos-libroleidox">
-        <h1>Descripci&oacute;n</h1>        
-        <textarea class="nuevaopinion" name="opinion" cols="100" rows="20"></textarea>
-    </section>
-
-    <section class="campos-libroleidox">
-        <h1>Opini&oacute;n</h1>        
-        <textarea class="nuevaopinion" name="opinion" cols="100" rows="20"></textarea>
-    </section>
-
-
-    <section class="campos-libroleidox">
-        <h1>Mi valoraci&oacute;n</h1>
-        <form class="valoracion-libroleidox">
-            <input type="radio" name="valoracion" value="1"> 1
-            <input type="radio" name="valoracion" value="2"> 2
-            <input type="radio" name="valoracion" value="3"> 3
-            <input type="radio" name="valoracion" value="4"> 4
-            <input type="radio" name="valoracion" value="5"> 5
-        </form>             
-        <input type="submit" name="submit" value="Alta Usuario">       
-    </section>
-    ';
-    */
     include 'footer.php';
 ?>

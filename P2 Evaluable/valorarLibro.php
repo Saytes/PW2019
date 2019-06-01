@@ -39,7 +39,7 @@
 
     echo '<section class="cabecera-libroleidox">
         <img class="foto-libro"src="imagenes/imagenb.jpg" alt=" Imagen" width="150px">
-        <form action="insertlibro.php" onsubmit="return validateBook()" id="altalibro" name="altalibro" class="altalibro" method="post">
+        <form action="insertlibro.php"  id="altalibro" name="altalibro" class="altalibro" method="post">
             <ul class="cabecera-datos">
                 <li>
                     <p>TÍTULO: <input type="text" name="titulo" value= "' .$_SESSION["titulo"]. '" disabled></br></p>
@@ -51,7 +51,7 @@
                 <li >
                     <p>EDITORIAL: 
                         <select name="editorial" disabled>
-                            <option value= "0" selected>Editorial ' .$_SESSION["editorial"]. '</option>
+                            <option value="0" selected>Editorial ' .$_SESSION["editorial"]. '</option>
                             <option value="1">Editorial 1</option>
                             <option value="2">Editorial 2</option>
                             <option value="3">Editorial 3</option>
@@ -73,7 +73,7 @@
 
     echo '
     <section class="campos-libroleidox">
-        <form class="valoracion-libroleidox" action="valoracion.php" id="valorarLibro" name="valorarLibro" class="valorarLibro" method="post" >
+        <form class="valoracion-libroleidox" onsubmit="return validateReview()" action="valoracion.php" id="valorarLibro" name="valorarLibro" class="valorarLibro" method="post" >
             <h1>Descripci&oacute;n</h1>';
             if(isset($_SESSION['desc'])){ 
                echo' <textarea class="nuevaopinion" name="descripcion" cols="100" rows="20">' .$_SESSION["desc"]. '</textarea>';

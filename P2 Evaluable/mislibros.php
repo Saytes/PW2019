@@ -9,6 +9,13 @@
     
     if(isset($_SESSION['userId'])){
         $userId = $_SESSION['userId'];
+        unset($_SESSION['titulo1']);
+        unset($_SESSION['titulo2']);
+        unset($_SESSION['titulo3']);
+        
+        unset($_SESSION['noactivotitulo1']);
+        unset($_SESSION['noactivotitulo2']);
+        unset($_SESSION['noactivotitulo3']);
 
         //Selecciono los libros del usuario y guardo los 3 primeros para mostrarlos
         if($stmt = $conn->prepare("SELECT TITLE, AUTOR, EDITORIAL, YEAR, EDITION FROM BOOKS WHERE USERID=?")){
@@ -69,7 +76,7 @@
                     <img src="imagenes/imagenb.jpg" alt="Libro 1" width="150px">    
                 </li>
                 <li class="datos">
-                    <p><b>TÍTULO</b>: <a href="libroleido1.html">'. $_SESSION["titulo1"] . '</a></br></p>
+                    <p><b>TÍTULO</b>: <u><a href="libroleido.php?a='. $_SESSION["titulo1"] .'">'. $_SESSION["titulo1"] . '</a></u></br></p>
                     <p><b>AUTOR</b>: '. $_SESSION["autor1"] . '</p>
                 </li>
                 <p><b><a class="altalibro" href="valorarLibro.php?a='. $_SESSION["titulo1"] .'">Valorar libro</a></b></p>
@@ -85,7 +92,7 @@
                             <img src="imagenes/imagenb.jpg" alt="Libro 1" width="150px">
                     </li>
                     <li class="datos">
-                        <p><b>TÍTULO</b>: <a href="libroleido1.html">'. $_SESSION["titulo2"] . '</a></br></p>
+                        <p><b>TÍTULO</b>: <u><a href="libroleido.php?a='. $_SESSION["titulo2"] .'">'. $_SESSION["titulo2"] . '</a></u></br></p>
                         <p><b>AUTOR</b>: '. $_SESSION["autor2"] . '</p>
                     </li>
                     <p><b><a class="altalibro" href="valorarLibro.php?a='. $_SESSION["titulo2"] .'">Valorar libro</a></b></p>
@@ -101,7 +108,7 @@
                             <img src="imagenes/imagenb.jpg" alt="Libro 1" width="150px">
                         </li>
                         <li class="datos">
-                            <p><b>TÍTULO</b>: <a href="libroleido1.html">'. $_SESSION["titulo3"].'</a></br></p>
+                            <p><b>TÍTULO</b>: <u><a href="libroleido.php?a='. $_SESSION["titulo3"] .'">'. $_SESSION["titulo3"].'</a></u></br></p>
                             <p><b>AUTOR</b>: '. $_SESSION["autor3"] . '</p>
                         </li>
                         <p><b><a class="altalibro" href="valorarLibro.php?a='. $_SESSION["titulo3"] .'">Valorar libro</a></b></p>
@@ -120,41 +127,48 @@
                         <h3>No tienes libros dados de alta, introduce uno!</h3>
                 </li>
                 <li class="datos">
-                    <a class="altalibro" href="altalibro.php">Dar de alta un nuevo libro</a>
+                    <a class="altalibro" href="altalibro.php"><u>Dar de alta un nuevo libro</u></a>
                 </li>
             </ul>
         </article>
         ';        
     }
-        echo'         
-        <aside class="ultimoslibros">';
-            if(isset($_SESSION['noactivotitulo1'])){
-                echo'
-                <a class= datos href="valorarLibro.php?a='. $_SESSION["noactivotitulo1"] .'">
-                    <p>'. $_SESSION["noactivotitulo1"] .'</p>
-                </a>
-                ';
-            }
+    echo'         
+    <aside class="ultimoslibros">';
+        if(isset($_SESSION['noactivotitulo1'])){
+            echo'
+            <a class= datos href="valorarLibro.php?a='. $_SESSION["noactivotitulo1"] .'">
+                <p>'. $_SESSION["noactivotitulo1"] .'</p>
+            </a>
+            ';
+        
             if(isset($_SESSION['noactivotitulo2'])){
                 echo'
                 <a class= datos href="valorarLibro.php?a='. $_SESSION["noactivotitulo2"] .'">
                     <p>'. $_SESSION["noactivotitulo2"] .'</p>
                 </a>
                 ';
+            
+                if(isset($_SESSION['noactivotitulo3'])){
+                    echo'
+                    <a class= datos href="valorarLibro.php?a='. $_SESSION["noactivotitulo3"] .'">
+                        <p>'. $_SESSION["noactivotitulo3"] .'</p>
+                    </a>
+                    <h1 class="tituloultimoslibros">T&iacute;tulo de los &uacute;ltimos libros a&ntilde;adidos a la aplicaci&oacute;n</h1>  
+                    ';
+                }
             }
-            if(isset($_SESSION['noactivotitulo3'])){
-                echo'
-                <a class= datos href="valorarLibro.php?a='. $_SESSION["noactivotitulo3"] .'">
-                    <p>'. $_SESSION["noactivotitulo3"] .'</p>
-                </a>
-                ';
-            }
-        echo'        
-        <h1 class="tituloultimoslibros">T&iacute;tulo de los &uacute;ltimos libros a&ntilde;adidos a la aplicaci&oacute;n</h1>    
-        
-        <a class="altalibro" href="altalibro.php">Dar de alta un nuevo libro</a> 
+        }
+        else{
+            echo'
+            <h3>Aun no hay ningún libro en la base de datos, ¡se el primero en dar un libro de alta!</h3></br>
+             ';
+        }
+    echo'          
+    
+    <a class="altalibro" href="altalibro.php"><u>Dar de alta un nuevo libro</u></a> 
 
-        </aside>
+    </aside>
     </section>  
     ';
 

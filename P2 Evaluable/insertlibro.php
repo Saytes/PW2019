@@ -55,7 +55,7 @@
             }
             
         } else {
-            $_SESSION['error']= "2";   
+            $_SESSION['error']= "1";   
             mysqli_close($conn);
         
             header("Location: ./altalibro.php");         
