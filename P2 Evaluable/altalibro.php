@@ -25,7 +25,7 @@
                         </select>
                 </li>
                 <li >
-                    <p>AÑO: <input type="text" name="anio" pattern="[1-9]*" minlength=4 maxlength=4></br></p>
+                    <p>AÑO: <input type="text" name="anio" pattern="[0-9]*" minlength=4 maxlength=4></br></p>
                 </li>
                 <li >
                     <p>EDICI&Oacute;N: <input type="text" name="edicion"></br></p>

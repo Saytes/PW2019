@@ -223,6 +223,8 @@ label{
 
 .nuevaopinion{
     border: 3px solid #000080;
+    width: 50em;
+    height: 20em;
 }
 
 .titulo-opiniones{
@@ -488,9 +490,15 @@ footer{
         padding-left: 5%;     
     }
     .cabecera-libroleidox .cabecera-datos{
-        height: 100px;
+        height: 70px;
     }
 
+    .nuevaopinion{
+        overflow: auto;
+        width: 40em;
+        height: 20em;
+    }
+    
     /* LIBRO X */    
     .opinion-librox{
         padding-left: 5%;

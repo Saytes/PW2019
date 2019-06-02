@@ -13,7 +13,6 @@
 
     //Selecciono los libros del usuario y guardo los 3 primeros para mostrarlos
     if($stmt = $conn->prepare("SELECT TITLE, AUTOR FROM BOOKS")){
-        //$stmt->bind_param("i", $userId);
         $stmt->execute();
         $stmt->store_result();
         $stmt->bind_result($TITLE, $AUTOR);
@@ -34,14 +33,14 @@
             <figure>
                 <img class="relacionada.jpg" src="imagenes/books.png" alt="Imagen Relacionada" >
             </figure>
-        </section>';
+        </section>
+        <section class="menu">
+            <section class="tituloMenu">
+                <h2>Libros mejor valorados</h2>
+            </section>';
 
         if(isset($_SESSION['tituloindex1'])){
             echo'
-            <section class="menu">
-                <section class="tituloMenu">
-                    <h2>Libros mejor valorados</h2>
-                </section>
                 <section class="celdaMenu">
                     <ul>
                         <li class="foto">
@@ -53,15 +52,10 @@
                         </li>
                     </ul>
                 </section>
-            </section>  
             ';
 
             if(isset($_SESSION['tituloindex2'])){
                 echo'
-                <section class="menu">
-                    <section class="tituloMenu">
-                        <h2>Libros mejor valorados</h2>
-                    </section>
                     <section class="celdaMenu">
                         <ul>
                             <li class="foto">
@@ -73,15 +67,10 @@
                             </li>
                         </ul>
                     </section>
-                </section>  
                 ';
 
                 if(isset($_SESSION['tituloindex3'])){
                     echo'
-                    <section class="menu">
-                        <section class="tituloMenu">
-                            <h2>Libros mejor valorados</h2>
-                        </section>
                         <section class="celdaMenu">
                             <ul>
                                 <li class="foto">
@@ -96,21 +85,31 @@
                     </section>  
                     ';
                 }
+                else{
+                    echo '
+                    
+                    </section>  
+                    ';
+
+                }
+            }
+            else{
+                echo '
+                
+                </section>  
+                ';
+
             }
         }
         else{
             echo'
-            <section class="menu">
-                <section class="tituloMenu">
-                    <h2>Libros mejor valorados</h2>
-                </section>
                 <section class="celdaMenu">
                     <ul>
                         <li class="foto">
                             <h3>No hay libros dados de alta, ¡introduce uno registr&aacute;ndote en nuestra plataforma!</h3>
                         </li>
                         <li class="datos">
-                            <a href="altausuario.php"><i>Formulario de alta</i></a>
+                            <u><a href="altausuario.php"><i>Formulario de alta</i></a></u>
                         </li>
                     </ul>
                 </section>

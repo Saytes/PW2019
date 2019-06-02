@@ -76,20 +76,20 @@
         <form class="valoracion-libroleidox" onsubmit="return validateReview()" action="valoracion.php" id="valorarLibro" name="valorarLibro" class="valorarLibro" method="post" >
             <h1>Descripci&oacute;n</h1>';
             if(isset($_SESSION['desc'])){ 
-               echo' <textarea class="nuevaopinion" name="descripcion" cols="100" rows="20">' .$_SESSION["desc"]. '</textarea>';
+               echo' <textarea class="nuevaopinion" name="descripcion" >' .$_SESSION["desc"]. '</textarea>';
                unset($_SESSION['desc']);
             }
             else{
-                echo' <textarea class="nuevaopinion" name="descripcion" cols="100" rows="20"></textarea>';
+                echo' <textarea class="nuevaopinion" name="descripcion" ></textarea>';
             }
             echo' 
             <h1>Opini&oacute;n</h1> ';      
             if(isset($_SESSION['op'])){ 
-                echo' <textarea class="nuevaopinion" name="opinion" cols="100" rows="20">' .$_SESSION["op"]. '</textarea>';
+                echo' <textarea class="nuevaopinion" name="opinion" >' .$_SESSION["op"]. '</textarea>';
                 unset($_SESSION['op']);
             }
             else{
-                echo' <textarea class="nuevaopinion" name="opinion" cols="100" rows="20"></textarea>';
+                echo' <textarea class="nuevaopinion" name="opinion" ></textarea>';
             }
 
             echo' 

@@ -138,26 +138,27 @@
         if(isset($_SESSION['noactivotitulo1'])){
             echo'
             <a class= datos href="valorarLibro.php?a='. $_SESSION["noactivotitulo1"] .'">
-                <p>'. $_SESSION["noactivotitulo1"] .'</p>
+                <u><p>'. $_SESSION["noactivotitulo1"] .'</p></u>
             </a>
             ';
         
             if(isset($_SESSION['noactivotitulo2'])){
                 echo'
                 <a class= datos href="valorarLibro.php?a='. $_SESSION["noactivotitulo2"] .'">
-                    <p>'. $_SESSION["noactivotitulo2"] .'</p>
+                    <u><p>'. $_SESSION["noactivotitulo2"] .'</p></u>
                 </a>
                 ';
             
                 if(isset($_SESSION['noactivotitulo3'])){
                     echo'
                     <a class= datos href="valorarLibro.php?a='. $_SESSION["noactivotitulo3"] .'">
-                        <p>'. $_SESSION["noactivotitulo3"] .'</p>
-                    </a>
-                    <h1 class="tituloultimoslibros">T&iacute;tulo de los &uacute;ltimos libros a&ntilde;adidos a la aplicaci&oacute;n</h1>  
-                    ';
+                        <u><p>'. $_SESSION["noactivotitulo3"] .'</p></u>
+                    </a>';
                 }
             }
+            echo'
+            <h1 class="tituloultimoslibros">T&iacute;tulo de los &uacute;ltimos libros a&ntilde;adidos a la aplicaci&oacute;n</h1>  
+            ';
         }
         else{
             echo'
