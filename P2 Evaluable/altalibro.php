@@ -11,7 +11,7 @@
                     
                 </li>
                 <li >
-                    <p>AUTOR: <input type="text" name="autor" pattern="[a-zA-Z\s]*"></br></p>
+                    <p>AUTOR: <input type="text" name="autor" pattern="[a-zA-Z\s.]*"></br></p>
                 </li>
                 <li >
                     <p>EDITORIAL: 

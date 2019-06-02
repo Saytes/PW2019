@@ -4,13 +4,11 @@
     $dbpass = '75930719';
     $dbname = 'db75930719_pw1819';
     $conn = mysqli_connect($dbhost, $dbuser, $dbpass,$dbname);
+    session_start();
 
     if(!$conn ) {
         $_SESSION['error']= "1"; 
         header("Location: ./altausuario.php");
-    }
-    else{
-        session_start();
     }
 
     if(isset($_POST["fileToUpload"]) && !empty($_POST['fileToUpload'])){
