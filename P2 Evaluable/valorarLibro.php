@@ -3,9 +3,9 @@
 
     if(isset($_GET['a']) && !empty($_GET['a'])) /*you can validate the link here*/{
         $dbhost = 'localhost';
-        $dbuser = 'x75930719';
-        $dbpass = '75930719';
-        $dbname = 'db75930719_pw1819';
+        $dbuser = '';
+        $dbpass = '';
+        $dbname = '';
         $conn = mysqli_connect($dbhost, $dbuser, $dbpass,$dbname);
 
         $_SESSION['titulo']=$_GET['a'];
